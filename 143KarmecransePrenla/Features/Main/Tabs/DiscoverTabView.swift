@@ -3,12 +3,12 @@ import SwiftUI
 struct DiscoverTabView: View {
     @State private var challengeFilter: DiscoverChallengeFilter = .all
 
-    private let genres: [MusicGenre] = [
-        MusicGenre(id: "neo_pulse", title: "Neo pulse", subtitle: "Bright, driving electronic patterns"),
-        MusicGenre(id: "loft_groove", title: "Loft groove", subtitle: "Warm bass-led pocket playing"),
-        MusicGenre(id: "skyline_swing", title: "Skyline swing", subtitle: "Off-beat accents and crisp hi-hats"),
-        MusicGenre(id: "night_ledger", title: "Night ledger", subtitle: "Sparse hits with wide space"),
-        MusicGenre(id: "aurora_blend", title: "Aurora blend", subtitle: "Layered textures and floating fills")
+    private let practiceThemes: [PracticeTheme] = [
+        PracticeTheme(id: "neo_pulse", title: "Neo pulse", subtitle: "Tight subdivisions and driving accents—visual timing only."),
+        PracticeTheme(id: "loft_groove", title: "Loft groove", subtitle: "Wide pocket and calm spacing—still no audio tracks."),
+        PracticeTheme(id: "skyline_swing", title: "Skyline swing", subtitle: "Off-beat targets and crisp on-screen markers."),
+        PracticeTheme(id: "night_ledger", title: "Night ledger", subtitle: "Sparse layout with lots of room between taps."),
+        PracticeTheme(id: "aurora_blend", title: "Aurora blend", subtitle: "Layered goals that stack focus—no streaming music.")
     ]
 
     var body: some View {
@@ -17,22 +17,36 @@ struct DiscoverTabView: View {
                 Text("Discover lanes")
                     .screenTitleStyle()
 
-                Text("Curated sets, filters, and genre playlists—all paths lead into the same focused challenges.")
+                Text("No audio playback or music streaming. Everything here is interactive rhythm practice on the device.")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(Color.appAccent)
+                    .padding(14)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .fill(Color.appSurface.opacity(0.55))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                            .strokeBorder(Color.appAccent.opacity(0.28), lineWidth: 1)
+                    )
+
+                Text("Curated sets, filters, and themed practice routes—all paths open the same visual challenges.")
                     .bodyTextStyle()
 
                 PracticeCollectionsSection()
 
                 DiscoverChallengeBrowserView(selectedFilter: $challengeFilter)
 
-                Text("Genres")
+                Text("Practice themes")
                     .font(.headline.weight(.semibold))
                     .foregroundStyle(Color.appTextPrimary)
                     .padding(.top, 4)
 
                 LazyVStack(spacing: 12) {
-                    ForEach(genres) { genre in
+                    ForEach(practiceThemes) { theme in
                         NavigationLink {
-                            GenrePlaylistsView(genre: genre)
+                            ThemePracticeSetsView(theme: theme)
                         } label: {
                             HStack(alignment: .top, spacing: 14) {
                                 RoundedRectangle(cornerRadius: 14, style: .continuous)
@@ -51,12 +65,12 @@ struct DiscoverTabView: View {
                                     .shadow(color: Color.black.opacity(0.35), radius: 8, x: 0, y: 4)
 
                                 VStack(alignment: .leading, spacing: 6) {
-                                    Text(genre.title)
+                                    Text(theme.title)
                                         .font(.headline.weight(.semibold))
                                         .foregroundStyle(Color.appTextPrimary)
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.7)
-                                    Text(genre.subtitle)
+                                    Text(theme.subtitle)
                                         .font(.subheadline)
                                         .foregroundStyle(Color.appTextSecondary)
                                         .lineLimit(3)
@@ -164,29 +178,53 @@ private struct PracticeCollectionsSection: View {
     }
 }
 
-struct GenrePlaylistsView: View {
-    let genre: MusicGenre
+struct ThemePracticeSetsView: View {
+    let theme: PracticeTheme
 
-    private var playlists: [PlaylistItem] {
+    private var laneSets: [PracticeLaneSet] {
         [
-            PlaylistItem(id: "\(genre.id)_pulse", title: "\(genre.title) · Pulse set", subtitle: "Beat Sync focus", kind: .beatSync),
-            PlaylistItem(id: "\(genre.id)_shape", title: "\(genre.title) · Shape set", subtitle: "Melody Match focus", kind: .melodyMatch),
-            PlaylistItem(id: "\(genre.id)_lane", title: "\(genre.title) · Lane set", subtitle: "Rhythm Puzzle focus", kind: .rhythmPuzzle)
+            PracticeLaneSet(
+                id: "\(theme.id)_pulse",
+                title: "\(theme.title) · Beat lane",
+                subtitle: "Visual Beat Sync challenges (no sound required).",
+                kind: .beatSync
+            ),
+            PracticeLaneSet(
+                id: "\(theme.id)_shape",
+                title: "\(theme.title) · Shape lane",
+                subtitle: "Melody Match grids—tap patterns, not songs.",
+                kind: .melodyMatch
+            ),
+            PracticeLaneSet(
+                id: "\(theme.id)_lane",
+                title: "\(theme.title) · Puzzle lane",
+                subtitle: "Reorder tiles in Rhythm Puzzle—still no playback.",
+                kind: .rhythmPuzzle
+            )
         ]
     }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text(genre.title)
+                Text(theme.title)
                     .screenTitleStyle()
-                Text(genre.subtitle)
+                Text(theme.subtitle)
                     .bodyTextStyle()
 
+                Text("These rows are practice shortcuts. They do not download or play music.")
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(Color.appTextSecondary)
+                    .lineLimit(4)
+                    .minimumScaleFactor(0.85)
+                    .padding(12)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .appSoftInsetPlate(cornerRadius: 14)
+
                 LazyVStack(spacing: 12) {
-                    ForEach(playlists) { playlist in
+                    ForEach(laneSets) { laneSet in
                         NavigationLink {
-                            ActivityLevelsView(kind: playlist.kind)
+                            ActivityLevelsView(kind: laneSet.kind)
                         } label: {
                             HStack(alignment: .top, spacing: 14) {
                                 RoundedRectangle(cornerRadius: 14, style: .continuous)
@@ -199,17 +237,17 @@ struct GenrePlaylistsView: View {
                                     )
                                     .frame(width: 54, height: 54)
                                     .overlay {
-                                        Image(systemName: playlist.kind.symbolName)
+                                        Image(systemName: laneSet.kind.symbolName)
                                             .foregroundStyle(Color.appPrimary)
                                     }
                                     .shadow(color: Color.black.opacity(0.3), radius: 6, x: 0, y: 3)
                                 VStack(alignment: .leading, spacing: 6) {
-                                    Text(playlist.title)
+                                    Text(laneSet.title)
                                         .font(.headline.weight(.semibold))
                                         .foregroundStyle(Color.appTextPrimary)
                                         .lineLimit(2)
                                         .minimumScaleFactor(0.7)
-                                    Text(playlist.subtitle)
+                                    Text(laneSet.subtitle)
                                         .font(.subheadline)
                                         .foregroundStyle(Color.appTextSecondary)
                                         .lineLimit(2)

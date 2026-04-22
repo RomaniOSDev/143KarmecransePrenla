@@ -136,13 +136,15 @@ enum SessionDifficulty: String, CaseIterable, Identifiable, Codable {
     }
 }
 
-struct MusicGenre: Identifiable, Hashable {
+/// Themed labels for Discover (visual rhythm practice — not audio genres).
+struct PracticeTheme: Identifiable, Hashable {
     let id: String
     let title: String
     let subtitle: String
 }
 
-struct PlaylistItem: Identifiable, Hashable {
+/// One shortcut row into a lane type under a theme (not a media playlist).
+struct PracticeLaneSet: Identifiable, Hashable {
     let id: String
     let title: String
     let subtitle: String
