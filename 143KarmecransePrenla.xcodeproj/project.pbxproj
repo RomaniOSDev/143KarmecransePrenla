@@ -44,6 +44,11 @@
 		300492372F98FEED00B3ED85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004920B2F98FEED00B3ED85 /* Assets.xcassets */; };
 		300492392F98FEED00B3ED85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3004920F2F98FEED00B3ED85 /* LaunchScreen.storyboard */; };
 		3004923A2F98FEED00B3ED85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300492112F98FEED00B3ED85 /* Main.storyboard */; };
+		30696B2F2FADDFE200EF45FD /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30696B2A2FADDFE200EF45FD /* PersistenceManager.swift */; };
+		30696B302FADDFE200EF45FD /* PrivacyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30696B2B2FADDFE200EF45FD /* PrivacyWebView.swift */; };
+		30696B312FADDFE200EF45FD /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30696B292FADDFE200EF45FD /* AppRouter.swift */; };
+		30696B322FADDFE200EF45FD /* SaveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30696B2C2FADDFE200EF45FD /* SaveService.swift */; };
+		30696B332FADDFE200EF45FD /* StartMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30696B2D2FADDFE200EF45FD /* StartMainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +91,11 @@
 		300492102F98FEED00B3ED85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		300492122F98FEED00B3ED85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		300492132F98FEED00B3ED85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		30696B292FADDFE200EF45FD /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		30696B2A2FADDFE200EF45FD /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		30696B2B2FADDFE200EF45FD /* PrivacyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyWebView.swift; sourceTree = "<group>"; };
+		30696B2C2FADDFE200EF45FD /* SaveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveService.swift; sourceTree = "<group>"; };
+		30696B2D2FADDFE200EF45FD /* StartMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMainView.swift; sourceTree = "<group>"; };
 		92D01D860A2D61887BE7B05B /* Pods_143KarmecransePrenla.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_143KarmecransePrenla.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D978A7EE87D5D6F5ED8F22 /* Pods-143KarmecransePrenla.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-143KarmecransePrenla.debug.xcconfig"; path = "Target Support Files/Pods-143KarmecransePrenla/Pods-143KarmecransePrenla.debug.xcconfig"; sourceTree = "<group>"; };
 		CCB3BABE4CA282557E52EBA7 /* Pods-143KarmecransePrenla.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-143KarmecransePrenla.release.xcconfig"; path = "Target Support Files/Pods-143KarmecransePrenla/Pods-143KarmecransePrenla.release.xcconfig"; sourceTree = "<group>"; };
@@ -329,8 +339,21 @@
 				300492112F98FEED00B3ED85 /* Main.storyboard */,
 				300492122F98FEED00B3ED85 /* SceneDelegate.swift */,
 				300492132F98FEED00B3ED85 /* ViewController.swift */,
+				30696B2E2FADDFE200EF45FD /* Router */,
 			);
 			path = 143KarmecransePrenla;
+			sourceTree = "<group>";
+		};
+		30696B2E2FADDFE200EF45FD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				30696B292FADDFE200EF45FD /* AppRouter.swift */,
+				30696B2A2FADDFE200EF45FD /* PersistenceManager.swift */,
+				30696B2B2FADDFE200EF45FD /* PrivacyWebView.swift */,
+				30696B2C2FADDFE200EF45FD /* SaveService.swift */,
+				30696B2D2FADDFE200EF45FD /* StartMainView.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		E2A5D25EFFEA62F246DA2034 /* Frameworks */ = {
@@ -472,6 +495,11 @@
 				3004922B2F98FEED00B3ED85 /* MainShellView.swift in Sources */,
 				3004922C2F98FEED00B3ED85 /* OnboardingFlowView.swift in Sources */,
 				3004922D2F98FEED00B3ED85 /* OnboardingPageOneView.swift in Sources */,
+				30696B2F2FADDFE200EF45FD /* PersistenceManager.swift in Sources */,
+				30696B302FADDFE200EF45FD /* PrivacyWebView.swift in Sources */,
+				30696B312FADDFE200EF45FD /* AppRouter.swift in Sources */,
+				30696B322FADDFE200EF45FD /* SaveService.swift in Sources */,
+				30696B332FADDFE200EF45FD /* StartMainView.swift in Sources */,
 				3004922E2F98FEED00B3ED85 /* OnboardingPageThreeView.swift in Sources */,
 				3004922F2F98FEED00B3ED85 /* OnboardingPageTwoView.swift in Sources */,
 				300492302F98FEED00B3ED85 /* SessionHistoryView.swift in Sources */,
@@ -514,7 +542,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 143KarmecransePrenla/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Karmecranse Prenla";
@@ -529,7 +557,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nor.k1rm3cr9ns3pr3n91;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -554,7 +582,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 143KarmecransePrenla/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Karmecranse Prenla";
@@ -569,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nor.k1rm3cr9ns3pr3n91;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
